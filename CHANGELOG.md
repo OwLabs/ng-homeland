@@ -33,6 +33,16 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 ---
 
+## [1.0.1] - SEO Metadata
+
+### Added
+
+- Update metadata for SEO
+- Implemented sitemap and robots.txt
+- Updated favicon.ico
+
+---
+
 ## [1.0.0] - Initial setup
 
 ### Added
