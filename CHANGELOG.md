@@ -33,7 +33,7 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 ---
 
-## [1.1.0] - SEO Metadata
+## [1.0.2] - Section A Landing Page
 
 ### Added
 
