@@ -33,11 +33,25 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 ---
 
+## [1.0.3] - Update Section A
+
+### Added
+
+- Update project structure folder to follow the best practice
+
+### Changed
+
+- Tested responsive for both desktop and mobile
+- Updated both e2e and unit tests
+
+---
+
 ## [1.0.2] - Section A Landing Page
 
 ### Added
 
-- Section A for Landing Page
+- Added design for Section A
+- Tested responsive
 
 ---
 

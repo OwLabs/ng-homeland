@@ -1,195 +1,197 @@
 import { render, screen } from "@testing-library/react";
 import Home from "@/app/page";
 
-describe("Home Page", () => {
-  describe("Rendering", () => {
+describe("Home Page E2E Tests", () => {
+  describe("Page Rendering", () => {
     it("renders without crashing", () => {
-      render(<Home />);
-      expect(screen.getByTestId("home-page")).toBeInTheDocument();
+      const { container } = render(<Home />);
+      expect(container.firstChild).toBeInTheDocument();
     });
 
-    it("has correct structure with main wrapper", () => {
-      render(<Home />);
-      const mainWrapper = screen.getByTestId("home-page");
-      expect(mainWrapper).toHaveClass(
-        "flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black",
-      );
-    });
-
-    it("contains the main content section", () => {
-      render(<Home />);
-      const mainContent = screen.getByRole("main");
-      expect(mainContent).toBeInTheDocument();
+    it("has correct basic structure", () => {
+      const { container } = render(<Home />);
+      const wrapper = container.firstChild as HTMLElement;
+      expect(wrapper.tagName).toBe("DIV");
     });
   });
 
-  describe("Next.js Logo", () => {
-    it("renders the Next.js logo image", () => {
+  describe("SectionA Component Content", () => {
+    it("displays the main tagline", () => {
       render(<Home />);
-      const logo = screen.getByAltText("Next.js logo");
-      expect(logo).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          /Learn Smarter with NeuralGuru — Malaysia's First AI-Powered KBAT Predictor/i,
+        ),
+      ).toBeInTheDocument();
     });
 
-    it("has correct src for Next.js logo", () => {
+    it("displays the description text", () => {
       render(<Home />);
-      const logo = screen.getByAltText("Next.js logo");
-      expect(logo).toHaveAttribute("src", "/next.svg");
-    });
-
-    it("has correct dimensions for Next.js logo", () => {
-      render(<Home />);
-      const logo = screen.getByAltText("Next.js logo");
-      expect(logo).toHaveAttribute("width", "100");
-      expect(logo).toHaveAttribute("height", "20");
+      expect(
+        screen.getByText(
+          /Understand your weaknesses. Practice smarter questions. Learn with AI that thinks like your examiner./i,
+        ),
+      ).toBeInTheDocument();
     });
   });
 
-  describe("Heading and Text Content", () => {
-    it("displays the main heading", () => {
+  describe("Interactive Buttons", () => {
+    it("renders Start Free Trial button", () => {
       render(<Home />);
-      const heading = screen.getByRole("heading", {
-        name: /To get started, edit the page.tsx file/i,
+      const startButton = screen.getByRole("button", {
+        name: /Start Free Trial \(Student\)/i,
       });
-      expect(heading).toBeInTheDocument();
+      expect(startButton).toBeInTheDocument();
     });
 
-    it("displays the paragraph with link to Vercel templates", () => {
+    it("renders Tutor Login button", () => {
       render(<Home />);
-      const paragraph = screen.getByText(/Looking for a starting point/i);
-      expect(paragraph).toBeInTheDocument();
-    });
-
-    it("contains link to Vercel templates", () => {
-      render(<Home />);
-      const templatesLink = screen.getByRole("link", { name: /Templates/i });
-      expect(templatesLink).toBeInTheDocument();
-      expect(templatesLink).toHaveAttribute(
-        "href",
-        "https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app",
-      );
-    });
-
-    it("contains link to Next.js Learning center", () => {
-      render(<Home />);
-      const learningLink = screen.getByRole("link", { name: /Learning/i });
-      expect(learningLink).toBeInTheDocument();
-      expect(learningLink).toHaveAttribute(
-        "href",
-        "https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app",
-      );
-    });
-  });
-
-  describe("Action Links", () => {
-    it("contains Deploy Now button with Vercel logo", () => {
-      render(<Home />);
-      const deployLink = screen.getByRole("link", { name: /Deploy Now/i });
-      expect(deployLink).toBeInTheDocument();
-      expect(deployLink).toHaveAttribute(
-        "href",
-        "https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app",
-      );
-    });
-
-    it("contains Vercel logo in Deploy Now button", () => {
-      render(<Home />);
-      const vercelLogo = screen.getByAltText("Vercel logomark");
-      expect(vercelLogo).toBeInTheDocument();
-      expect(vercelLogo).toHaveAttribute("src", "/vercel.svg");
-      expect(vercelLogo).toHaveAttribute("width", "16");
-      expect(vercelLogo).toHaveAttribute("height", "16");
-    });
-
-    it("contains Documentation link", () => {
-      render(<Home />);
-      const docsLink = screen.getByRole("link", { name: /Documentation/i });
-      expect(docsLink).toBeInTheDocument();
-      expect(docsLink).toHaveAttribute(
-        "href",
-        "https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app",
-      );
-    });
-
-    it("all external links open in new tab", () => {
-      render(<Home />);
-      const deployLink = screen.getByRole("link", { name: /Deploy Now/i });
-      const docsLink = screen.getByRole("link", { name: /Documentation/i });
-
-      expect(deployLink).toHaveAttribute("target", "_blank");
-      expect(deployLink).toHaveAttribute("rel", "noopener noreferrer");
-
-      expect(docsLink).toHaveAttribute("target", "_blank");
-      expect(docsLink).toHaveAttribute("rel", "noopener noreferrer");
-    });
-  });
-
-  describe("Styling and CSS Classes", () => {
-    it("has correct dark mode classes on wrapper", () => {
-      render(<Home />);
-      const wrapper = screen.getByTestId("home-page");
-      expect(wrapper).toHaveClass("dark:bg-black");
-    });
-
-    it("has correct responsive classes on main content", () => {
-      render(<Home />);
-      const main = screen.getByRole("main");
-      expect(main).toHaveClass("bg-white");
-      expect(main).toHaveClass("dark:bg-black");
-      expect(main).toHaveClass("sm:items-start");
-    });
-
-    it("has correct text styling classes on heading", () => {
-      render(<Home />);
-      const heading = screen.getByRole("heading", {
-        name: /To get started, edit the page.tsx file/i,
+      const tutorButton = screen.getByRole("button", {
+        name: /Tutor Login/i,
       });
-      expect(heading).toHaveClass("text-3xl");
-      expect(heading).toHaveClass("font-semibold");
-      expect(heading).toHaveClass("text-black");
-      expect(heading).toHaveClass("dark:text-zinc-50");
+      expect(tutorButton).toBeInTheDocument();
+      expect(tutorButton).toHaveClass("border-gray-800");
     });
 
-    it("has correct styling on paragraph", () => {
+    it("Start Free Trial button has correct styling", () => {
       render(<Home />);
-      const paragraph = screen.getByText(/Looking for a starting point/i);
-      expect(paragraph).toHaveClass("text-lg");
-      expect(paragraph).toHaveClass("text-zinc-600");
-      expect(paragraph).toHaveClass("dark:text-zinc-400");
+      const startButton = screen.getByRole("button", {
+        name: /Start Free Trial \(Student\)/i,
+      });
+      expect(startButton).toHaveClass("text-white");
     });
 
-    it("has correct styling on links", () => {
+    it("Tutor Login button has outline variant", () => {
       render(<Home />);
-      const link = screen.getByRole("link", { name: /Templates/i });
-      expect(link).toHaveClass("font-medium");
-      expect(link).toHaveClass("text-zinc-950");
-      expect(link).toHaveClass("dark:text-zinc-50");
+      const tutorButton = screen.getByRole("button", {
+        name: /Tutor Login/i,
+      });
+      expect(tutorButton).toHaveClass("border");
+    });
+  });
+
+  describe("Links Verification", () => {
+    it("contains Admin Access link", () => {
+      render(<Home />);
+      const adminLink = screen.getByRole("link", { name: /Admin Access/i });
+      expect(adminLink).toBeInTheDocument();
+      expect(adminLink).toHaveAttribute("href", "#");
+    });
+
+    it("Admin Access link has correct styling", () => {
+      render(<Home />);
+      const adminLink = screen.getByRole("link", { name: /Admin Access/i });
+      expect(adminLink).toHaveClass("inline-flex", "items-center", "gap-2");
+    });
+  });
+
+  describe("Feature Highlights", () => {
+    it("displays 'No Credit Card Required' feature", () => {
+      render(<Home />);
+      expect(screen.getByText("No Credit Card Required")).toBeInTheDocument();
+    });
+
+    it("displays '14 Day Free Trial' feature", () => {
+      render(<Home />);
+      expect(screen.getByText("14 Day Free Trial")).toBeInTheDocument();
+    });
+
+    it("renders check circle icons for features", () => {
+      render(<Home />);
+      const { container } = render(<Home />);
+      // Check that the lucide-react icons are rendered
+      const checkIcons = container.querySelectorAll('svg[class*="lucide"]');
+      expect(checkIcons.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe("Visual Elements", () => {
+    it("renders the hero icons at the top", () => {
+      render(<Home />);
+      const { container } = render(<Home />);
+      // Two ImageUpIcon components should be rendered
+      const icons = container.querySelectorAll("svg.h-8.w-8");
+      expect(icons.length).toBeGreaterThanOrEqual(2);
+    });
+
+    it("renders the aspect ratio container for media", () => {
+      render(<Home />);
+      const { container } = render(<Home />);
+      const aspectRatioDiv = container.querySelector(
+        ".rounded-3xl.bg-black\\/90",
+      );
+      expect(aspectRatioDiv).toBeInTheDocument();
+    });
+  });
+
+  describe("Responsive Layout", () => {
+    it("has grid layout with responsive classes", () => {
+      render(<Home />);
+      const { container } = render(<Home />);
+      const gridContainer = container.querySelector(
+        ".grid.grid-cols-1.md\\:grid-cols-2",
+      );
+      expect(gridContainer).toBeInTheDocument();
+    });
+
+    it("buttons have responsive width classes", () => {
+      render(<Home />);
+      const startButton = screen.getByRole("button", {
+        name: /Start Free Trial \(Student\)/i,
+      });
+      const tutorButton = screen.getByRole("button", {
+        name: /Tutor Login/i,
+      });
+
+      expect(startButton).toHaveClass("sm:w-auto", "w-full");
+      expect(tutorButton).toHaveClass("sm:w-auto", "w-full");
+    });
+  });
+
+  describe("Content Structure", () => {
+    it("has section with background styling", () => {
+      render(<Home />);
+      const { container } = render(<Home />);
+      const section = container.querySelector("section.bg-gray-100");
+      expect(section).toBeInTheDocument();
+    });
+
+    it("has max-width container for content", () => {
+      render(<Home />);
+      const { container } = render(<Home />);
+      const maxWidthContainer = container.querySelector(".max-w-7xl");
+      expect(maxWidthContainer).toBeInTheDocument();
+    });
+
+    it("has proper spacing classes", () => {
+      render(<Home />);
+      const { container } = render(<Home />);
+      const spacedDiv = container.querySelector(".space-y-6");
+      expect(spacedDiv).toBeInTheDocument();
     });
   });
 
   describe("Accessibility", () => {
-    it("all images have alt text", () => {
+    it("all buttons are accessible", () => {
       render(<Home />);
-      const images = screen.getAllByRole("img");
-      images.forEach((img) => {
-        expect(img).toHaveAttribute("alt");
+      const buttons = screen.getAllByRole("button");
+      expect(buttons.length).toBe(2);
+      buttons.forEach((button) => {
+        expect(button).toBeVisible();
       });
     });
 
-    it("action links have proper rel attribute", () => {
+    it("links have proper text content", () => {
       render(<Home />);
-      const deployLink = screen.getByRole("link", { name: /Deploy Now/i });
-      const docsLink = screen.getByRole("link", { name: /Documentation/i });
-
-      expect(deployLink).toHaveAttribute("rel", "noopener noreferrer");
-      expect(docsLink).toHaveAttribute("rel", "noopener noreferrer");
+      const adminLink = screen.getByRole("link", { name: /Admin Access/i });
+      const linkText = adminLink.querySelector("p");
+      expect(linkText).toHaveTextContent("Admin Access");
     });
 
-    it("has correct number of interactive elements", () => {
+    it("feature list items are readable", () => {
       render(<Home />);
-      const links = screen.getAllByRole("link");
-      const images = screen.getAllByRole("img");
-      expect(links.length).toBe(4);
-      expect(images.length).toBe(2);
+      expect(screen.getByText("No Credit Card Required")).toBeVisible();
+      expect(screen.getByText("14 Day Free Trial")).toBeVisible();
     });
   });
 });
