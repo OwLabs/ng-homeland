@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2Icon, CircleCheckIcon, Icon, ImageUpIcon, LucideArrowRight, LucideCheckCircle } from "lucide-react";
+import { ImageUpIcon, LucideArrowRight, LucideCheckCircle } from "lucide-react";
 import { Button } from "../ui/button";
 import { AspectRatio } from "../ui/aspect-ratio";
 
@@ -17,7 +17,7 @@ export default function SectionA() {
             </div>
             
             <p className="text-md font-light">
-              Learn Smarter with NeuralGuru — Malaysia's First AI-Powered KBAT
+              Learn Smarter with NeuralGuru — Malaysia&apos;s First AI-Powered KBAT
               Predictor
             </p>
             <p className="text-lg font-md">
@@ -27,7 +27,7 @@ export default function SectionA() {
             <div className=" flex flex-wrap flex-col gap-4 sm:flex-row">
               <Button
                 variant={"default"}
-                className="bg-gradient-to-r from-blue-800 
+                className="bg-linear-to-r from-blue-800 
                         to-indigo-400
                         text-white hover:from-blue-700
                         hover:to-indigo-700 
