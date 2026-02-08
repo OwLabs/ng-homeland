@@ -33,6 +33,14 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 ---
 
+## [1.0.9] - Section C Side Padding Fix
+
+### Added
+
+- Add side padding to Section C
+
+---
+
 ## [1.0.8] - Section E Landing Page
 
 ### Added
