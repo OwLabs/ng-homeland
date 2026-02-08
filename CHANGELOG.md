@@ -46,8 +46,6 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 ---
 
----
-
 ## [1.0.3] - Update Section A
 
 ### Added
