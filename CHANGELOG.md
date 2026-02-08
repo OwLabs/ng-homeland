@@ -33,6 +33,18 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 ---
 
+## [1.0.5] - Pull Request Template
+
+### Added
+
+- PR template
+
+### Changed
+
+- Automated PR process
+
+---
+
 ## [1.0.4] - Section B Landing Page
 
 ### Added
