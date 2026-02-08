@@ -33,6 +33,19 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 ---
 
+## [1.0.8] - Section E Landing Page
+
+### Added
+
+- Added design for Section E
+
+### Changed
+
+- Tested responsive for both desktop and mobile
+- Updated unit tests
+
+---
+
 ## [1.0.7] - Section D Landing Page
 
 ### Added
