@@ -1,7 +1,7 @@
 export default function SectionC() {
   return (
     <div>
-      <section className="w-full py-24 bg-gray-100">
+      <section className="w-full py-24 px-16 bg-gray-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <p className="mb-4 font-md text-gray-900">How NeuralGuru Works</p>
