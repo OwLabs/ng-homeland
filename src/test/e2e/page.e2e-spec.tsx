@@ -175,7 +175,7 @@ describe("Home Page E2E Tests", () => {
     it("all buttons are accessible", () => {
       render(<Home />);
       const buttons = screen.getAllByRole("button");
-      expect(buttons.length).toBe(2);
+      expect(buttons.length).toBe(4);
       buttons.forEach((button) => {
         expect(button).toBeVisible();
       });

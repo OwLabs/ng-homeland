@@ -39,6 +39,14 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 - Add side padding to Section C
 
+---
+
+## [1.0.8] - Section E Landing Page
+
+### Added
+
+- Added design for Section E
+
 ### Changed
 
 - Tested responsive for both desktop and mobile
