@@ -28,7 +28,7 @@ describe("Home Page Unit Tests", () => {
       const { container } = render(<Home />);
       const wrapper = container.firstChild as HTMLElement;
       expect(wrapper.tagName).toBe("DIV");
-      expect(wrapper.children.length).toBe(3);
+      expect(wrapper.children.length).toBe(4);
     });
   });
 
