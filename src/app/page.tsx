@@ -4,7 +4,7 @@ import SectionC from "@/components/landing-page/section-c";
 import SectionD from "@/components/landing-page/section-d";
 import SectionE from "@/components/landing-page/section-e";
 
-export default async function Home() {
+export default function Home() {
   return (
     <div>
       <main>
