@@ -17,8 +17,7 @@ export default function SectionB() {
               <CardContent>
                 <div className="grid grid-cols-1 gap-8">
                   <BrainIcon
-                  className="h-16 w-16 bg-linear-to-l from-blue-800 
-                        to-indigo-400 border rounded-lg p-3" color="white"
+                  className="h-16 w-16 bg-linear-to-r from-[#0B2545] to-[#1E3A8A] border rounded-lg p-3" color="white"
                 />
                 <h3 className="font-medium text-semibold text-gray-800">AI KBAT Prediction</h3>
                 <p className="font-light text-bold text-gray-600 pr-2">Advanced AI analyzes your test patterns to predict KBAT weaknesses before they become problems.</p>  
@@ -29,8 +28,7 @@ export default function SectionB() {
                 <CardContent>
                 <div className="grid grid-cols-1 gap-8">
                   <TargetIcon
-                  className="h-16 w-16 bg-linear-to-l from-blue-800 
-                        to-indigo-400 border rounded-lg p-3"
+                  className="h-16 w-16 bg-linear-to-r from-[#0B2545] to-[#1E3A8A] border rounded-lg p-3"
                         color="white"
                 />
                 <h3 className="font-medium text-semibold text-gray-800">Adaptive Practice & Instant Feedback</h3>
@@ -42,8 +40,7 @@ export default function SectionB() {
                 <CardContent>
                 <div className="grid grid-cols-1 gap-8">
                   <UsersIcon
-                  className="h-16 w-16 bg-linear-to-l from-blue-800 
-                        to-indigo-400 border rounded-lg p-3" color="white"
+                  className="h-16 w-16 bg-linear-to-r from-[#0B2545] to-[#1E3A8A] border rounded-lg p-3" color="white"
                 />
                 <h3 className="font-medium text-semibold text-gray-800">Smart Tutor Matching</h3>
                 <p className="font-light text-bold text-gray-600 pr-2">Get matched with expert tutors specialized in your specific learning needs.</p>  
