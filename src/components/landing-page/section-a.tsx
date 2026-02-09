@@ -26,9 +26,9 @@ export default function SectionA() {
             </p>
             <div className=" flex flex-wrap flex-col gap-4 sm:flex-row">
               <Button
+                size={"lg"}
                 variant={"default"}
-                className="bg-linear-to-r from-blue-800 
-                        to-indigo-400
+                className="bg-linear-to-r from-[#0B2545] to-[#1E3A8A]
                         text-white hover:from-blue-700
                         hover:to-indigo-700 
                          sm:w-auto w-full"
@@ -36,6 +36,7 @@ export default function SectionA() {
                 Start Free Trial (Student) <LucideArrowRight />
               </Button>
               <Button
+                size={"lg"}
                 variant={"outline"}
                 className="border border-gray-800 sm:w-auto w-full"
               >

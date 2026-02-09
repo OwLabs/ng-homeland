@@ -1,4 +1,4 @@
-import { ArrowRight, LucideArrowRight } from "lucide-react";
+import { LucideArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
 
 export default function SectionE() {
@@ -17,7 +17,7 @@ export default function SectionE() {
             <Button
             size={"lg"}
               variant={"default"}
-              className="bg-linear-to-r from-[#1E3A8A] to-[#3B82F6] hover:from-[#0B2545] hover:to-[#1E3A8A] text-white w-full sm:w-auto"
+              className="bg-linear-to-r from-[#0B2545] to-[#1E3A8A] text-white w-full sm:w-auto"
             >
               Start As Student
               <LucideArrowRight />

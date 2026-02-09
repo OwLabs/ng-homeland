@@ -11,7 +11,7 @@ export default function SectionC() {
           </div>
           <div className="mt-20 grid grid-cols-1 gap-16 md:grid-cols-4">
             <div className="relative flex flex-col items-center text-center">
-              <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-r from-blue-800 to-indigo-500 text-2xl font-semibold text-white shadow-md">
+              <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-r from-[#0B2545] to-[#1E3A8A] text-2xl font-semibold text-white shadow-md">
                 1
               </div>
               <div className="absolute top-10 left-1/8 hidden h-0.5 w-full translate-x-1/2 bg-linear-to-r from-blue-800 to-transparent md:block" />
@@ -19,7 +19,7 @@ export default function SectionC() {
               <p className="mt-2 max-w-xs text-gray-600">Tutor add your Test 1, Test 2, Mid-Year, or Final exam scores</p>
             </div>
             <div className="relative flex flex-col items-center text-center">
-              <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-r from-blue-800 to-indigo-500 text-2xl font-semibold text-white shadow-md">
+              <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-r from-[#0B2545] to-[#1E3A8A] text-2xl font-semibold text-white shadow-md">
                 2
               </div>
               <div className="absolute top-10 left-1/8 hidden h-0.5 w-full translate-x-1/2 bg-linear-to-r from-blue-800 to-white-400 md:block" />
@@ -27,7 +27,7 @@ export default function SectionC() {
               <p className="mt-2 max-w-xs text-gray-600">Our AI detects KBAT weaknesses and learning patterns</p>
             </div>
             <div className="relative flex flex-col items-center text-center">
-              <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-r from-blue-800 to-indigo-500 text-2xl font-semibold text-white shadow-md">
+              <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-r from-[#0B2545] to-[#1E3A8A] text-2xl font-semibold text-white shadow-md">
                 3
               </div>
               <div className="absolute top-10 left-1/8 hidden h-0.5 w-full translate-x-1/2 bg-linear-to-r from-blue-800 to-white-400 md:block" />
@@ -35,7 +35,7 @@ export default function SectionC() {
               <p className="mt-2 max-w-xs text-gray-600">Get adaptive KBAT questions with different contexts</p>
             </div>
             <div className="relative flex flex-col items-center text-center">
-              <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-r from-blue-800 to-indigo-500 text-2xl font-semibold text-white shadow-md">
+              <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-r from-[#0B2545] to-[#1E3A8A] text-2xl font-semibold text-white shadow-md">
                 4
               </div>
               <h3 className="mt-6 text-lg font-semibold text-gray-900">Track & Improve</h3>
