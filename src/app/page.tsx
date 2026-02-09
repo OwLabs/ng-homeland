@@ -4,17 +4,16 @@ import SectionC from "@/components/landing-page/section-c";
 import SectionD from "@/components/landing-page/section-d";
 import SectionE from "@/components/landing-page/section-e";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div>
       <main>
-      <SectionA />
-      <SectionB />
-      <SectionC />
-      <SectionD />
-      <SectionE />
+        <SectionA />
+        <SectionB />
+        <SectionC />
+        <SectionD />
+        <SectionE />
       </main>
     </div>
-    
   );
 }
