@@ -35,7 +35,7 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 ## [1.0.10] - Update UI Accent Colour
 
-### Added
+### Addeds
 
 - Change colours of UI element to match prototype
 
