@@ -33,6 +33,21 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 ---
 
+## [1.0.11] - Footer Component
+
+### Added
+
+- Added Footer component with shadcn/ui
+- Added logo asset (`public/logo.png`)
+- Added Input UI component
+- Added Separator UI component
+
+### Changed
+
+- Integrated Footer component into landing page (`src/app/page.tsx`)
+
+---
+
 ## [1.0.10] - Update UI Accent Colour
 
 ### Added

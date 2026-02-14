@@ -3,7 +3,7 @@ import SectionB from "@/components/landing-page/section-b";
 import SectionC from "@/components/landing-page/section-c";
 import SectionD from "@/components/landing-page/section-d";
 import SectionE from "@/components/landing-page/section-e";
-import { Footer } from "@/components/ui/footer"; 
+import { Footer } from "@/components/footer"; 
 
 
 export default function Home() {

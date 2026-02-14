@@ -2,8 +2,8 @@
 
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react'
 import Image from 'next/image'
-import { Button } from './button'
-import { Separator } from './separator'
+import { Button } from './ui/button'
+import { Separator } from './ui/separator'
 
 interface FooterProps {
   onNavigate?: (page: string) => void
