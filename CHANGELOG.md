@@ -45,6 +45,9 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 ### Changed
 
 - Integrated Footer component into landing page (`src/app/page.tsx`)
+- Updated unit test: page structure children count from 1 to 2 (`src/test/unit/page.spec.tsx`)
+- Updated E2E test: button count from 4 to 7 (`src/test/e2e/page.e2e-spec.tsx`)
+- Updated snapshot test for Footer component (`src/test/unit/__snapshots__/page.spec.tsx.snap`)
 
 ---
 
