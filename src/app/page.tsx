@@ -3,6 +3,8 @@ import SectionB from "@/components/landing-page/section-b";
 import SectionC from "@/components/landing-page/section-c";
 import SectionD from "@/components/landing-page/section-d";
 import SectionE from "@/components/landing-page/section-e";
+import { Footer } from "@/components/footer"; 
+
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <SectionD />
       <SectionE />
       </main>
+      <Footer />
+
     </div>
     
   );
