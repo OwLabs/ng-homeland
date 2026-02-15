@@ -32,6 +32,14 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 - ***
 
 ---
+## [1.0.11] - Add Pricing Page
+
+### Added
+
+- Add pricing page to landing page
+- Add new dependency (Motion) for animation
+
+---
 
 ## [1.0.10] - Update UI Accent Colour
 
