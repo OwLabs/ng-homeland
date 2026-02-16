@@ -32,6 +32,14 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 - ***
 
 ---
+
+## [1.0.12] - FAQ Page
+
+### Added
+
+- Creating FAQ Section A
+
+
 ## [1.0.11] - Add Pricing Page
 
 ### Added
