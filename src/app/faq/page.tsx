@@ -1,5 +1,5 @@
-import SectionA from "@/components/landing-page/FAQ/faq-section-a";
+import { FAQPageContent } from "@/components/landing-page/FAQ/faq-page-content"
 
 export default function FAQ() {
-  return <SectionA />
+  return <FAQPageContent />
 }
