@@ -1,13 +1,15 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "motion/react"
 import { Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 
-export default function SectionA() {
-    const [searchQuery, setSearchQuery] = useState("")
-    
+interface SectionAProps {
+    searchQuery: string
+    setSearchQuery: (query: string) => void
+}
+
+export function SectionA({ searchQuery, setSearchQuery }: SectionAProps) {
     return (
         <section className="relative overflow-hidden bg-[#0B2545] text-white py-20">
             <div className="absolute inset-0 bg-gradient-to-br from-[#0B2545] via-[#1E3A8A] to-[#3B82F6] opacity-90"></div>
@@ -19,9 +21,12 @@ export default function SectionA() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">How can we help you?</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                        How can we help you?
+                    </h1>
                     <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-10">
-                        Find answers to common questions about NeuralGuru, our AI technology, and subscription plans.
+                        Find answers to common questions about NeuralGuru, our AI
+                        technology, and subscription plans.
                     </p>
 
                     <div className="max-w-2xl mx-auto relative">
