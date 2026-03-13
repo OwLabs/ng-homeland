@@ -33,6 +33,25 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 ---
 
+## [2.0.1] - Image Optimization & Configuration Overhaul
+
+### Added
+
+- Support for external image sources from **Unsplash** and **TransparentTextures** via `remotePatterns` in `next.config.ts`.
+
+### Changed
+
+- Migrated `ImageWithFallback` to use `next/image` for automatic optimization and lazy loading.
+- Improved `ImageWithFallback` flexibility to support custom `object-fit` and `object-position` utility classes (e.g., `object-top`).
+- Configured **Security & Performance** in `next.config.ts` (disabled `poweredByHeader`).
+- Set `images.unoptimized` to `true` as requested for current deployment needs.
+
+### Fixed
+
+- Resolved "height collapse" issue in `ImageWithFallback` when using `fill` prop by ensuring the wrapper correctly inherits parent dimensions.
+
+---
+
 ## [2.0.0] - Major UI Design and Testing Overhaul
 
 ### Added
