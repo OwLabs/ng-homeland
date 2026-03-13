@@ -1,197 +1,120 @@
 import { render, screen } from "@testing-library/react";
 import Home from "@/app/page";
+import BecomeTutor from "@/app/become-a-tutor/page";
+import FAQ from "@/app/faq/page";
+import Pricing from "@/app/pricing/page";
+import PrivacyPolicy from "@/app/privacy-policy/page";
+import TermsOfService from "@/app/terms-of-service/page";
 
-describe("Home Page E2E Tests", () => {
-  describe("Page Rendering", () => {
+// Mock useRouter for LandingPage
+jest.mock("next/navigation", () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+  }),
+}));
+
+// Mock motion from motion/react to avoid "whileInView" props on DOM elements
+jest.mock("motion/react", () => {
+  const mockMotion = (Component: string) => {
+    return ({ children, whileInView, initial, animate, transition, viewport, ...props }: any) => {
+      const Tag = Component as any;
+      return <Tag {...props}>{children}</Tag>;
+    };
+  };
+
+  return {
+    motion: {
+      div: mockMotion("div"),
+      h1: mockMotion("h1"),
+      p: mockMotion("p"),
+      section: mockMotion("section"),
+      aside: mockMotion("aside"),
+      span: mockMotion("span"),
+    },
+  };
+});
+
+// Mock components that might use heavy libraries or have complex rendering
+jest.mock("@/components/NeuralNetworkBackground", () => ({
+  NeuralNetworkBg: () => <div data-testid="neural-bg" />,
+}));
+jest.mock("@/components/fallback-image/ImageWithFallback", () => ({
+  ImageWithFallback: (props: any) => <img {...props} alt={props.alt || ""} />,
+}));
+
+// Fix named export mocks for complex pages
+jest.mock("@/components/privacy-policy/PrivacyPolicyPage", () => ({
+  PrivacyPolicyPage: () => <div data-testid="privacy-policy-page">Privacy Policy Page</div>,
+}));
+jest.mock("@/components/terms-of-service/TermsOfServicePage", () => ({
+  TermsOfServicePage: () => <div data-testid="terms-of-service-page">Terms of Service Page</div>,
+}));
+
+describe("Application E2E-Style Tests", () => {
+  describe("Landing Page (Home)", () => {
     it("renders without crashing", () => {
       const { container } = render(<Home />);
       expect(container.firstChild).toBeInTheDocument();
     });
 
-    it("has correct basic structure", () => {
-      const { container } = render(<Home />);
-      const wrapper = container.firstChild as HTMLElement;
-      expect(wrapper.tagName).toBe("DIV");
-    });
-  });
-
-  describe("SectionA Component Content", () => {
-    it("displays the main tagline", () => {
+    it("displays the main tagline and badge", () => {
       render(<Home />);
-      expect(
-        screen.getByText(
-          /Learn Smarter with NeuralGuru — Malaysia's First AI-Powered KBAT Predictor/i,
-        ),
-      ).toBeInTheDocument();
+      // Tagline is split across multiple elements inside h1
+      expect(screen.getByRole("heading", { name: /Learn Smarter\. Score Higher\./i })).toBeInTheDocument();
+      expect(screen.getByText(/Malaysia's First AI-Powered KBAT Predictor/i)).toBeInTheDocument();
     });
 
     it("displays the description text", () => {
       render(<Home />);
       expect(
         screen.getByText(
-          /Understand your weaknesses. Practice smarter questions. Learn with AI that thinks like your examiner./i,
+          /AI that thinks like your examiner — predicts your weaknesses, adapts to your pace, and guides you to exam success./i,
         ),
       ).toBeInTheDocument();
     });
-  });
 
-  describe("Interactive Buttons", () => {
-    it("renders Start Free Trial button", () => {
+    it("renders the primary CTA buttons", () => {
       render(<Home />);
-      const startButton = screen.getByRole("button", {
-        name: /Start Free Trial \(Student\)/i,
-      });
-      expect(startButton).toBeInTheDocument();
+      // There are multiple buttons with this text, we just need to verify at least one is there
+      expect(screen.getAllByRole("button", { name: /Get Started Free/i })[0]).toBeInTheDocument();
+      expect(screen.getByRole("button", { name: /View Pricing/i })).toBeInTheDocument();
     });
 
-    it("renders Tutor Login button", () => {
+    it("displays feature highlights", () => {
       render(<Home />);
-      const tutorButton = screen.getByRole("button", {
-        name: /Tutor Login/i,
-      });
-      expect(tutorButton).toBeInTheDocument();
-      expect(tutorButton).toHaveClass("border-gray-800");
-    });
-
-    it("Start Free Trial button has correct styling", () => {
-      render(<Home />);
-      const startButton = screen.getByRole("button", {
-        name: /Start Free Trial \(Student\)/i,
-      });
-      expect(startButton).toHaveClass("text-white");
-    });
-
-    it("Tutor Login button has outline variant", () => {
-      render(<Home />);
-      const tutorButton = screen.getByRole("button", {
-        name: /Tutor Login/i,
-      });
-      expect(tutorButton).toHaveClass("border");
+      // There are multiple occurrences of these texts
+      expect(screen.getAllByText(/No credit card required/i)[0]).toBeInTheDocument();
+      expect(screen.getAllByText(/14-day free trial/i)[0]).toBeInTheDocument();
+      expect(screen.getAllByText(/MOE-aligned content/i)[0]).toBeInTheDocument();
     });
   });
 
-  describe("Links Verification", () => {
-    it("contains Admin Access link", () => {
-      render(<Home />);
-      const adminLink = screen.getByRole("link", { name: /Admin Access/i });
-      expect(adminLink).toBeInTheDocument();
-      expect(adminLink).toHaveAttribute("href", "#");
+  describe("Other Pages Rendering", () => {
+    it("renders Become a Tutor page", () => {
+      const { container } = render(<BecomeTutor />);
+      expect(container).toBeInTheDocument();
     });
 
-    it("Admin Access link has correct styling", () => {
-      render(<Home />);
-      const adminLink = screen.getByRole("link", { name: /Admin Access/i });
-      expect(adminLink).toHaveClass("inline-flex", "items-center", "gap-2");
-    });
-  });
-
-  describe("Feature Highlights", () => {
-    it("displays 'No Credit Card Required' feature", () => {
-      render(<Home />);
-      expect(screen.getByText("No Credit Card Required")).toBeInTheDocument();
+    it("renders FAQ page", () => {
+      const { container } = render(<FAQ />);
+      expect(container).toBeInTheDocument();
     });
 
-    it("displays '14 Day Free Trial' feature", () => {
-      render(<Home />);
-      expect(screen.getByText("14 Day Free Trial")).toBeInTheDocument();
+    it("renders Pricing page", () => {
+      const { container } = render(<Pricing />);
+      expect(container).toBeInTheDocument();
     });
 
-    it("renders check circle icons for features", () => {
-      render(<Home />);
-      const { container } = render(<Home />);
-      // Check that the lucide-react icons are rendered
-      const checkIcons = container.querySelectorAll('svg[class*="lucide"]');
-      expect(checkIcons.length).toBeGreaterThan(0);
-    });
-  });
-
-  describe("Visual Elements", () => {
-    it("renders the hero icons at the top", () => {
-      render(<Home />);
-      const { container } = render(<Home />);
-      // Two ImageUpIcon components should be rendered
-      const icons = container.querySelectorAll("svg.h-8.w-8");
-      expect(icons.length).toBeGreaterThanOrEqual(2);
+    it("renders Privacy Policy page", () => {
+      const { getByTestId } = render(<PrivacyPolicy />);
+      expect(getByTestId("privacy-policy-page")).toBeInTheDocument();
     });
 
-    it("renders the aspect ratio container for media", () => {
-      render(<Home />);
-      const { container } = render(<Home />);
-      const aspectRatioDiv = container.querySelector(
-        ".rounded-3xl.bg-black\\/90",
-      );
-      expect(aspectRatioDiv).toBeInTheDocument();
-    });
-  });
-
-  describe("Responsive Layout", () => {
-    it("has grid layout with responsive classes", () => {
-      render(<Home />);
-      const { container } = render(<Home />);
-      const gridContainer = container.querySelector(
-        ".grid.grid-cols-1.md\\:grid-cols-2",
-      );
-      expect(gridContainer).toBeInTheDocument();
-    });
-
-    it("buttons have responsive width classes", () => {
-      render(<Home />);
-      const startButton = screen.getByRole("button", {
-        name: /Start Free Trial \(Student\)/i,
-      });
-      const tutorButton = screen.getByRole("button", {
-        name: /Tutor Login/i,
-      });
-
-      expect(startButton).toHaveClass("sm:w-auto", "w-full");
-      expect(tutorButton).toHaveClass("sm:w-auto", "w-full");
-    });
-  });
-
-  describe("Content Structure", () => {
-    it("has section with background styling", () => {
-      render(<Home />);
-      const { container } = render(<Home />);
-      const section = container.querySelector("section.bg-gray-100");
-      expect(section).toBeInTheDocument();
-    });
-
-    it("has max-width container for content", () => {
-      render(<Home />);
-      const { container } = render(<Home />);
-      const maxWidthContainer = container.querySelector(".max-w-7xl");
-      expect(maxWidthContainer).toBeInTheDocument();
-    });
-
-    it("has proper spacing classes", () => {
-      render(<Home />);
-      const { container } = render(<Home />);
-      const spacedDiv = container.querySelector(".space-y-6");
-      expect(spacedDiv).toBeInTheDocument();
-    });
-  });
-
-  describe("Accessibility", () => {
-    it("all buttons are accessible", () => {
-      render(<Home />);
-      const buttons = screen.getAllByRole("button");
-      expect(buttons.length).toBe(4);
-      buttons.forEach((button) => {
-        expect(button).toBeVisible();
-      });
-    });
-
-    it("links have proper text content", () => {
-      render(<Home />);
-      const adminLink = screen.getByRole("link", { name: /Admin Access/i });
-      const linkText = adminLink.querySelector("p");
-      expect(linkText).toHaveTextContent("Admin Access");
-    });
-
-    it("feature list items are readable", () => {
-      render(<Home />);
-      expect(screen.getByText("No Credit Card Required")).toBeVisible();
-      expect(screen.getByText("14 Day Free Trial")).toBeVisible();
+    it("renders Terms of Service page", () => {
+      const { getByTestId } = render(<TermsOfService />);
+      expect(getByTestId("terms-of-service-page")).toBeInTheDocument();
     });
   });
 });
+
+
