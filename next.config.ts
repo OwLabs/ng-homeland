@@ -13,6 +13,20 @@ const nextConfig: NextConfig = {
   // --------------------------------------
   // Security & Performance (hosting for vercel/netlify)
   // poweredByHeader: false,
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.transparenttextures.com",
+      },
+    ],
+  },
+  poweredByHeader: false,
 };
 
 export default nextConfig;
