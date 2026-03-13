@@ -33,6 +33,34 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 ---
 
+## [2.0.0] - Major UI Design and Testing Overhaul
+
+### Added
+
+- Added new **Become a Tutor** page with comprehensive data and sections.
+- Added new **Privacy Policy** and **Terms of Service** pages, compliant with Malaysian PDPA.
+- New unit tests for all major pages: `Become a Tutor`, `FAQ`, `Pricing`, `Privacy Policy`, and `Terms of Service`.
+- Robust E2E-style tests for all application routes.
+- Updated **robots.ts** and **sitemap.ts** with all new routes for improved SEO visibility.
+- Advanced mocking strategies for `motion/react`, `NeuralNetworkBg`, and `ImageWithFallback` to improve test reliability.
+- Flexible text matchers for handling split text nodes in complex UI components.
+
+### Changed
+
+- **Landing Page Overhaul**: Refactored the landing page with a modern Design System, including new feature sections and improved typography.
+- **FAQ Page Overhaul**: Reorganized FAQ structure with categories and searchable items.
+- **Pricing Page Overhaul**: Refactored pricing cards and comparison table for better clarity and interaction.
+- **Component Architecture**: Restructured the `src/components` directory to follow Next.js best practices, splitting monolithic components into modular sections.
+- Refactored `Landing Page` unit tests to use `data-testid` and correct component mocks.
+- Improved mocking of named exports across the entire test suite.
+- Replaced specific text matchers with more robust role-based assertions in E2E tests.
+
+### Removed
+
+- Redundant snapshot tests to improve test maintenance and focus on functional verification.
+
+---
+
 ## [1.0.12] - FAQ Page
 
 ### Added

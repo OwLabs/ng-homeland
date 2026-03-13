@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      // Since this is a landing-only page, we allow all search engines access!
+      // Full access allowed for all pages to ensure SEO visibility
     },
     sitemap: `${baseUrl}/sitemap.xml`,
   };
